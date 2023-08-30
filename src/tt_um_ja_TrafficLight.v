@@ -9,12 +9,15 @@ module tt_um_ja_TrafficLight(
     input  wire       rst_n                                 
 );
 
+assign uio_out = 8'b11111111;
+assign uio_oe = 8'b11111111;
+
 //Real Inputs/Outputs
 wire Start;
 reg Red_Light, Yellow_Light, Green_Light;                           //Color Outputs
 
 assign Start = ui_in[0];
-assign uo_out[2:0] = {Red_Light, Yellow_Light, Green_Light};
+assign uo_out = {{5{1'b1}} , Red_Light, Yellow_Light, Green_Light};
 
 // State Definition
 parameter IDLE = 3'b000;                                            //Initial State
