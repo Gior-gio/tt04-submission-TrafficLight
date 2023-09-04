@@ -16,6 +16,8 @@ you can find a signal called "count," which increments every second due to frequ
 Additionally, in the "src" folder, there is a testbench for the circuit. When running this testbench, 
 the following results are obtained in the console:
 
+![image](https://github.com/Gior-gio/tt04-submission-TrafficLight/assets/68038923/b41a2c0e-3a34-4d83-8a27-f51e6f75ec70)
+
 ## How to test?
 
 Set the first input to “1” and await the activation of the Red light. It will remain active
