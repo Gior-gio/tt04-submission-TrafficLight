@@ -1,3 +1,4 @@
+`timescale 1us / 1ns
 module tt_um_ja_TrafficLight_TB;
     reg clk;
     reg [7:0] ui_in;
@@ -10,7 +11,7 @@ module tt_um_ja_TrafficLight_TB;
     );
 
     //Clock Generation
-    always #0.5 clk = ~clk;
+    always #15.25 clk = ~clk;
 
     initial begin
         $dumpfile("Traffic_Light.vcd");
@@ -20,7 +21,7 @@ module tt_um_ja_TrafficLight_TB;
         #1 ui_in[0] = 0;  //Reset goes low after 10 time units
 
         // Simulate for a period of time
-        #200;
+        #100000000;
         $finish;
     end
 

@@ -9,6 +9,22 @@ module tt_um_ja_TrafficLight(
     input  wire       rst_n                                 
 );
 
+wire [7:0] freqSet = 8'b11111111;
+wire [7:0] OutVfreq;
+wire Newclk = OutVfreq[6]; 
+wire [7:0] uo_outVfreq = 8'b11111111;
+ 
+tt_um_RS_Vfreq Vfreq(
+        .clk(clk),
+        .ui_in(freqSet),
+        .rst_n(rst),
+        .uo_out(uo_outVfreq),
+        .uio_in(uio_in),
+        .uio_out(OutVfreq),
+        .uio_oe(uio_oe),
+        .ena(ena)
+    );
+
 assign uio_out = 8'b11111111;
 assign uio_oe = 8'b11111111;
 
@@ -36,7 +52,7 @@ reg [2:0] state, next_state;
 reg [5:0] counter;
 
 //FSM Logic
-always @(posedge clk or posedge Start) begin
+always @(posedge Newclk or posedge Start) begin
     if (Start) begin
         state <= IDLE;                                              //Initial State
     end else begin
@@ -81,7 +97,7 @@ always @* begin
 end
 
 //Current State Logic
-always @(posedge clk) begin
+always @(posedge Newclk) begin
     if (counter <= TIME_RED+2*TIME_YELLOW+TIME_GREEN 
         & (state == RED | state == RED2GREEN | state == GREEN | state == GREEN2RED)) begin
         counter <= counter + 6'b000001;                             //Initial State
