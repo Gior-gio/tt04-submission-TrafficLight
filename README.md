@@ -11,8 +11,10 @@ control system. Its state diagram is as follows:
 ![image](https://github.com/Gior-gio/tt04-submission-TrafficLight/assets/68038923/7c1f6fd9-e620-4884-8589-ee59f7ba9be5)
 
 In the provided source code from this 
-[tinytapeout submission]([https://www.openai.com](https://github.com/RamonSsc/tt04-submission-Vfreq)), 
-you can find a signal called "count," which increments every second due to frequency division using a module. Additionally, in the "src" folder, there is a testbench for the circuit. When running this testbench, the following results are obtained in the console:
+[tinytapeout submission](https://github.com/RamonSsc/tt04-submission-Vfreq), 
+you can find a signal called "count," which increments every second due to frequency division using a module. 
+Additionally, in the "src" folder, there is a testbench for the circuit. When running this testbench, 
+the following results are obtained in the console:
 
 ## How to test?
 
