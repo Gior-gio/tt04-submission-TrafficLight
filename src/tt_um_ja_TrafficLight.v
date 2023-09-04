@@ -12,7 +12,7 @@ module tt_um_ja_TrafficLight(
 wire [7:0] freqSet = 8'b11111111;
 wire [7:0] OutVfreq;
 wire Newclk = OutVfreq[6]; 
-wire [7:0] uo_outVfreq = 8'b11111111;
+wire [7:0] uo_outVfreq;
 wire [7:0] uio_oeVfreq;
  
 tt_um_RS_Vfreq Vfreq(
