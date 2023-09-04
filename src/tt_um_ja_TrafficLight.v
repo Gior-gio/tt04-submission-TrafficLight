@@ -24,15 +24,15 @@ tt_um_RS_Vfreq Vfreq(
         .ena(ena)
     );
 
-assign uio_out = 8'b11111111;
-assign uio_oe = 8'b11111111;
+assign uio_oe = 8'b11111111;                                        //Assign Output to evade synthesis problems
 
 //Real Inputs/Outputs
 wire Start;
 reg Red_Light, Yellow_Light, Green_Light;                           //Color Outputs
 
 assign Start = ui_in[0];
-assign uo_out = {{5{1'b1}} , Red_Light, Yellow_Light, Green_Light};
+assign uo_out = {{5{1'b1}} , Red_Light, Yellow_Light, Green_Light}; //Seven Segment Output
+assign uio_out = {{5{1'b1}} , Red_Light, Yellow_Light, Green_Light};//Bidirectional Output
 
 // State Definition
 parameter IDLE = 3'b000;                                            //Initial State
