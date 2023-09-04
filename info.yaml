@@ -5,8 +5,10 @@ project:
 
 # If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
 # Source files must be in ./src and you must list each source file separately
-  source_files:        
+  source_files:
+    - tt_um_RS_Vfreq.v
     - tt_um_ja_TrafficLight.v
+    
   top_module:  "tt_um_ja_TrafficLight"      # Put the name of your top module here, must start with "tt_um_". Make it unique by including your github username
 
 # How many tiles your design occupies? A single tile is about 167x108 uM.
@@ -27,11 +29,11 @@ documentation:
 
 # Longer description of how the project works. You can use standard markdown format.
   how_it_works: |
-      This is a Finite State Machine (FSM) equipped with an internal counter that determines the duration of each light and transition.
+      This is a Finite State Machine (FSM) that utilizes an instantiated module of the "CLK Frequency Divider" by Ramón Sarmiento to perform internal counting for a traffic light control system.
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
-      Establish a logical sequence in the input and measure the resulting outputs. These outputs will correspond to the Red, Yellow, and Green signals of a Traffic Light, respectively.
+      Set the first input to "1" and await the activation of the Red light. It will remain active for 30 seconds, provided the correct frequency is employed. Afterward, it will transition to the Green state within 3 seconds, remaining in this state for an additional 20 seconds. Finally, it will transition back to the Red state over the course of 3 seconds.
 
 # A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
   inputs:               
@@ -65,9 +67,9 @@ documentation:
     - none
 
 # The following fields are optional
-  tag:          ""      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
-  external_hw:  ""      # Describe any external hardware needed
+  tag:          "timer"      # comma separated list of tags: test, encryption, experiment, clock, animation, utility, industrial, pwm, fpga, alu, microprocessor, risc, riscv, sensor, signal generator, fft, filter, music, bcd, sound, serial, timer, random number generator, calculator, decoder, counter, puzzle, multiplier, game, oscillator,
+  external_hw:  "Three Different Color LEDs (Optional)"      # Describe any external hardware needed
   discord:      ""      # Your discord handle, used for communication and automatically assigning tapeout role after a submission
-  doc_link:     ""      # URL to longer form documentation, eg the README.md in your repository
-  clock_hz:     0       # Clock frequency in Hz (if required)
+  doc_link:     "https://github.com/Gior-gio/tt04-submission-TrafficLight/blob/main/info.yaml"      # URL to longer form documentation, eg the README.md in your repository
+  clock_hz:     32768       # Clock frequency in Hz (if required)
   picture:      ""      # relative path to a picture in your repository (must be 512kb or less)
